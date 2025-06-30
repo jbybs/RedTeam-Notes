@@ -1,0 +1,27 @@
+site_name: Red Teaming Notes
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - Recon:
+      - Windows Enumeration: Recon/windows-enum.md
+      - Linux Enumeration: Recon/linux-enum.md
+      - Website Enumeration: Recon/web-enum.md
+      - Notable Files & Directories: Recon/notable-files.md
+  - Initial Access:
+      - Web Exploitation: Initial_Access/web-exploitation.md
+      - Metasploit: Initial_Access/metasploit.md
+  - Privilege Escalation:
+      - Windows: Priv_Esc/windows-privesc.md
+      - Linux: Priv_Esc/linux-privesc.md
+  - Lateral Movement & AD:
+      - Active Directory: Lateral_Movement/active-directory.md
+      - Cached AD Credentials: Lateral_Movement/cached-ad-creds.md
+      - SSH Tunneling & Port Forwarding: Lateral_Movement/ssh-tunneling.md
+  - Post-Exploitation:
+      - File Transfer & Exfiltration: Post_Exploitation/file-transfer-exfil.md
+      - Tunneling & DPI Bypass: Post_Exploitation/tunneling-dpi.md
+  - Password Cracking & Hash Attacks: password-cracking.md
+  - Tooling & Techniques:
+      - Tools & General Commands: Tools/tools-and-commands.md
