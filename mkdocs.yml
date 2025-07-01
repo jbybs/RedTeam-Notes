@@ -5,6 +5,7 @@ theme:
 nav:
   - Home: index.md
   - Recon:
+      - Port Scanning (Nmap): Recon/port-scanning.md
       - Windows Enumeration: Recon/windows-enum.md
       - Linux Enumeration: Recon/linux-enum.md
       - Website Enumeration: Recon/web-enum.md
