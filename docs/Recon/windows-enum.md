@@ -1,11 +1,3 @@
-I’m glad you liked it! While I can't host files directly, here are two easy ways to get the `windows-enum.md` file:
-
----
-
-### 📥 Option 1: Copy & Paste
-
-Simply copy the complete Markdown snippet below and save it as a file named `windows-enum.md` in your repo folder:
-
 ````markdown
 # 🪟 Windows Enumeration
 
@@ -188,10 +180,4 @@ dnsrecon -d support.htb0 -t axfr -n <IP>
 
 ```
 
-Save it as `windows-enum.md`, and you're all set!
 
----
-
-### 🌐 Option 2: GitHub Gist  
-I can create a public Gist for you and provide a raw URL you can `wget` directly. Would you like me to go ahead and do that?
-```
