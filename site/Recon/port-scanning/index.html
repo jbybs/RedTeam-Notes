@@ -9,10 +9,10 @@
       
       
       
-        <link rel="prev" href="../windows-privesc/">
+        <link rel="prev" href="../..">
       
       
-        <link rel="next" href="../../Lateral_Movement/active-directory/">
+        <link rel="next" href="../windows-enum/">
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
@@ -20,7 +20,7 @@
     
     
       
-        <title>Linux - Red Teaming Notes</title>
+        <title>Port Scanning (Nmap) - Red Teaming Notes</title>
       
     
     
@@ -62,7 +62,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#linux-privilege-escalation" class="md-skip">
+        <a href="#nmap" class="md-skip">
           Skip to content
         </a>
       
@@ -98,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Linux
+              Port Scanning (Nmap)
             
           </span>
         </div>
@@ -213,18 +213,20 @@
       
   
   
+    
   
   
+  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -240,7 +242,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Recon
@@ -251,10 +253,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Recon/port-scanning/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Port Scanning (Nmap)
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -265,6 +289,131 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#online-tools" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔗 Online Tools
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-nmap-commands-examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      💣 Common Nmap Commands &amp; Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💣 Common Nmap Commands &amp; Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-serviceversion-detection-scan-on-common-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Quick service/version detection scan on common ports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-tcp-port-scan-with-service-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Full TCP port scan with service detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-discovery-in-a-subnet-ping-sweep" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Host discovery in a subnet (Ping sweep)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggressive-scan-with-os-and-script-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Aggressive scan with OS and script detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ UDP scan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-1000-ports-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Top 1000 ports (default)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flag-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      💬 Flag Breakdown
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-advanced-script-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡ Example Advanced Script Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⭐ Summary
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -277,7 +426,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Recon/windows-enum/" class="md-nav__link">
+      <a href="../windows-enum/" class="md-nav__link">
         
   
   
@@ -300,7 +449,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Recon/linux-enum/" class="md-nav__link">
+      <a href="../linux-enum/" class="md-nav__link">
         
   
   
@@ -323,7 +472,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Recon/web-enum/" class="md-nav__link">
+      <a href="../web-enum/" class="md-nav__link">
         
   
   
@@ -346,7 +495,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Recon/notable-files/" class="md-nav__link">
+      <a href="../notable-files/" class="md-nav__link">
         
   
   
@@ -464,20 +613,18 @@
       
   
   
-    
   
   
-  
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
         
           
           <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
@@ -493,7 +640,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_4">
             <span class="md-nav__icon md-icon"></span>
             Privilege Escalation
@@ -507,7 +654,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../windows-privesc/" class="md-nav__link">
+      <a href="../../Priv_Esc/windows-privesc/" class="md-nav__link">
         
   
   
@@ -527,32 +674,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Linux
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../Priv_Esc/linux-privesc/" class="md-nav__link">
         
   
   
@@ -563,44 +688,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#recon" class="md-nav__link">
-    <span class="md-ellipsis">
-      Recon
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#suid-files" class="md-nav__link">
-    <span class="md-ellipsis">
-      SUID Files
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -935,18 +1022,105 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#recon" class="md-nav__link">
+  <a href="#online-tools" class="md-nav__link">
     <span class="md-ellipsis">
-      Recon
+      🔗 Online Tools
     </span>
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#suid-files" class="md-nav__link">
+  <a href="#common-nmap-commands-examples" class="md-nav__link">
     <span class="md-ellipsis">
-      SUID Files
+      💣 Common Nmap Commands &amp; Examples
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="💣 Common Nmap Commands &amp; Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#quick-serviceversion-detection-scan-on-common-ports" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Quick service/version detection scan on common ports
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#full-tcp-port-scan-with-service-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Full TCP port scan with service detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-discovery-in-a-subnet-ping-sweep" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Host discovery in a subnet (Ping sweep)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggressive-scan-with-os-and-script-detection" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Aggressive scan with OS and script detection
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#udp-scan" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ UDP scan
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#top-1000-ports-default" class="md-nav__link">
+    <span class="md-ellipsis">
+      ✅ Top 1000 ports (default)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#flag-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      💬 Flag Breakdown
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-advanced-script-usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⚡ Example Advanced Script Usage
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      ⭐ Summary
     </span>
   </a>
   
@@ -968,15 +1142,122 @@
 
 
 
-<h1 id="linux-privilege-escalation">Linux Privilege Escalation</h1>
-<h2 id="recon">Recon</h2>
-<pre><code class="language-shell">id
-cat /etc/issue
-uname -a
+<h1 id="nmap">Nmap</h1>
+<h2 id="online-tools">🔗 Online Tools</h2>
+<ul>
+<li><a href="https://explainshell.com/explain?cmd=nmap+-sC+-sV+-v+">Explainshell for Nmap</a></li>
+<li><a href="https://highon.coffee/blog/nmap-cheat-sheet/">HighOnCoffee Nmap Cheat Sheet</a></li>
+</ul>
+<hr />
+<h2 id="common-nmap-commands-examples">💣 Common Nmap Commands &amp; Examples</h2>
+<h3 id="quick-serviceversion-detection-scan-on-common-ports">✅ Quick service/version detection scan on common ports</h3>
+<pre><code class="language-bash">nmap -sC -sV &lt;target&gt;
 </code></pre>
-<h2 id="suid-files">SUID Files</h2>
-<pre><code class="language-shell">find / -perm -u=s -type f 2&gt;/dev/null
+<ul>
+<li><code>-sC</code>: Runs default scripts (like banner grabbing, vuln checks).</li>
+<li><code>-sV</code>: Enables service and version detection.</li>
+<li>Good first scan for smaller environments or single hosts.</li>
+</ul>
+<hr />
+<h3 id="full-tcp-port-scan-with-service-detection">✅ Full TCP port scan with service detection</h3>
+<pre><code class="language-bash">nmap -p 1-65535 -sV -sS -T4 &lt;target&gt;
 </code></pre>
+<ul>
+<li><code>-p 1-65535</code>: Scan all 65,535 TCP ports.</li>
+<li><code>-sS</code>: SYN scan (stealthier than full connect).</li>
+<li><code>-T4</code>: Faster timing template (aggressive but not too noisy).</li>
+<li><code>-sV</code>: Detect services and versions.</li>
+</ul>
+<p>⚡ <strong>When to use:</strong> Thorough enumeration on single hosts or hardened servers.</p>
+<hr />
+<h3 id="host-discovery-in-a-subnet-ping-sweep">✅ Host discovery in a subnet (Ping sweep)</h3>
+<pre><code class="language-bash">nmap -sn 192.168.1.0/24
+</code></pre>
+<ul>
+<li><code>-sn</code>: Ping scan — disables port scanning, just discovers live hosts.</li>
+<li>Useful for mapping an entire subnet quickly.</li>
+</ul>
+<hr />
+<h3 id="aggressive-scan-with-os-and-script-detection">✅ Aggressive scan with OS and script detection</h3>
+<pre><code class="language-bash">nmap -A &lt;target&gt;
+</code></pre>
+<ul>
+<li><code>-A</code>: Enables OS detection (<code>-O</code>), version detection (<code>-sV</code>), script scanning (<code>-sC</code>), and traceroute.</li>
+<li>Very noisy — should not be used without permission in real environments.</li>
+</ul>
+<hr />
+<h3 id="udp-scan">✅ UDP scan</h3>
+<pre><code class="language-bash">nmap -sU -p 53,67,161 &lt;target&gt;
+</code></pre>
+<ul>
+<li><code>-sU</code>: UDP scan.</li>
+<li>UDP is slower and often filtered, but important for finding DNS, SNMP, DHCP services.</li>
+</ul>
+<hr />
+<h3 id="top-1000-ports-default">✅ Top 1000 ports (default)</h3>
+<pre><code class="language-bash">nmap &lt;target&gt;
+</code></pre>
+<ul>
+<li>Default scan uses top 1,000 most common ports.</li>
+</ul>
+<hr />
+<h2 id="flag-breakdown">💬 Flag Breakdown</h2>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-sC</code></td>
+<td>Runs default scripts (equivalent to <code>--script=default</code>)</td>
+</tr>
+<tr>
+<td><code>-sV</code></td>
+<td>Service/version detection</td>
+</tr>
+<tr>
+<td><code>-A</code></td>
+<td>Aggressive scan (OS, version, scripts, traceroute)</td>
+</tr>
+<tr>
+<td><code>-sS</code></td>
+<td>SYN scan (stealthy TCP connect)</td>
+</tr>
+<tr>
+<td><code>-sT</code></td>
+<td>TCP connect scan</td>
+</tr>
+<tr>
+<td><code>-sU</code></td>
+<td>UDP scan</td>
+</tr>
+<tr>
+<td><code>-p</code></td>
+<td>Specify ports</td>
+</tr>
+<tr>
+<td><code>-T0</code> to <code>-T5</code></td>
+<td>Timing options (0 = slowest/stealthiest, 5 = fastest/aggressive)</td>
+</tr>
+<tr>
+<td><code>--script</code></td>
+<td>Specify NSE scripts (e.g., <code>--script=http-*</code>)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="example-advanced-script-usage">⚡ Example Advanced Script Usage</h2>
+<pre><code class="language-bash">nmap --script vuln &lt;target&gt;
+</code></pre>
+<ul>
+<li>Runs scripts from the "vuln" category (e.g., checks for common CVEs).</li>
+</ul>
+<hr />
+<h2 id="summary">⭐ Summary</h2>
+<p>Nmap is one of the most versatile recon tools. Start simple (<code>-sC -sV</code>) to get an overview, and expand to full or specialized scans as needed.</p>
 
 
 
